@@ -2,7 +2,6 @@ import {
   StyleSheet,
   Text,
   View,
-  // ImageBackground,
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
@@ -24,7 +23,7 @@ const initialState = {
 export const LoginScreen = () => {
   const [state, setState] = useState(initialState);
   const [isShowKeybord, setIsShowKeybord] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
 
   const [fontsLoaded] = useFonts({
     "Roboto-Regular": require("../assets/fonts/Roboto-Regular.ttf"),
@@ -49,11 +48,6 @@ export const LoginScreen = () => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
-        {/* <ImageBackground
-          style={styles.image}
-          source={require("../images/PhotoBG.jpg")}
-        > */}
-        {/* <View style={styles.loginContainer}> */}
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
@@ -108,8 +102,6 @@ export const LoginScreen = () => {
             <Text style={styles.text}>Don't have account yet? Register</Text>
           </View>
         </KeyboardAvoidingView>
-        {/* </View> */}
-        {/* </ImageBackground> */}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -126,14 +118,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
     backgroundColor: "#ffffff",
-    // marginTop: "40%",
   },
-
-  // image: {
-  //   flex: 1,
-  //   resizeMode: "cover",
-  //   justifyContent: "flex-end",
-  // },
 
   header: {
     color: "#212121",

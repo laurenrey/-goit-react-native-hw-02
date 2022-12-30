@@ -2,7 +2,6 @@ import {
   StyleSheet,
   Text,
   View,
-  // ImageBackground,
   TextInput,
   TouchableOpacity,
   KeyboardAvoidingView,
@@ -50,17 +49,10 @@ export const RegistrationScreen = () => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
-        {/* <ImageBackground
-          style={styles.image}
-          source={require("../images/PhotoBG.jpg")}
-        > */}
         <KeyboardAvoidingView
           behavior={Platform.OS == "ios" ? "padding" : "height"}
         >
           <View style={styles.registerContainer}>
-            {/* <KeyboardAvoidingView
-              behavior={Platform.OS == "ios" ? "padding" : "height"}
-            > */}
             <View style={styles.photoContainer}></View>
             <Text style={styles.header}>Registration</Text>
             <View
@@ -124,10 +116,8 @@ export const RegistrationScreen = () => {
             <Text style={styles.text}>
               Do you already have an account? Log in
             </Text>
-            {/* </KeyboardAvoidingView> */}
           </View>
         </KeyboardAvoidingView>
-        {/* </ImageBackground> */}
       </View>
     </TouchableWithoutFeedback>
   );
@@ -144,12 +134,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     backgroundColor: "#ffffff",
     position: "relative",
-  },
-
-  image: {
-    // flex: 1,
-    // resizeMode: "cover",
-    // justifyContent: "flex-end",
   },
 
   photoContainer: {
@@ -209,7 +193,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 16,
     marginHorizontal: 16,
-    // marginTop: 43,
   },
 
   btnTitle: {
