@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   Text,
   View,
   TextInput,
@@ -12,6 +11,7 @@ import {
 import { useCallback, useState } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { styles } from "../src/screens.styles";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -47,12 +47,12 @@ export const LoginScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={styles.container}>
+      <View style={{ ...styles.container, marginTop: "65%" }}>
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
           <View style={styles.loginContainer}>
-            <Text style={styles.header}>Login</Text>
+            <Text style={{ ...styles.header, marginTop: 32 }}>Login</Text>
 
             <View
               onLayout={onLayoutRootView}
@@ -99,89 +99,12 @@ export const LoginScreen = () => {
             >
               <Text style={styles.btnTitle}>Login</Text>
             </TouchableOpacity>
-            <Text style={styles.text}>Don't have account yet? Register</Text>
+            <Text style={{ ...styles.text, marginBottom: 144 }}>
+              Don't have account yet? Register
+            </Text>
           </View>
         </KeyboardAvoidingView>
       </View>
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: "65%",
-    justifyContent: "flex-end",
-  },
-
-  loginContainer: {
-    borderTopRightRadius: 25,
-    borderTopLeftRadius: 25,
-    backgroundColor: "#ffffff",
-  },
-
-  header: {
-    color: "#212121",
-    fontFamily: "Roboto",
-    fontSize: 30,
-    lineHeight: 35,
-    textAlign: "center",
-    marginBottom: 32,
-    marginTop: 32,
-  },
-
-  input: {
-    borderWidth: 1,
-    borderColor: "#E8E8E8",
-    height: 50,
-    borderRadius: 8,
-    backgroundColor: "#F6F6F6",
-    paddingLeft: 16,
-    paddingRight: 16,
-    color: "#212121",
-    fontFamily: "Roboto-Regular",
-    fontSize: 16,
-    lineHeight: 19,
-  },
-
-  btnShowPassword: {
-    position: "absolute",
-    right: 16,
-    top: -33,
-    fontSize: 16,
-    color: "#1B4371",
-    fontFamily: "Roboto-Regular",
-    fontSize: 16,
-    lineHeight: 19,
-  },
-
-  form: {
-    marginHorizontal: 16,
-  },
-
-  btn: {
-    backgroundColor: "#FF6C00",
-    height: 51,
-    borderRadius: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 16,
-    marginHorizontal: 16,
-  },
-
-  btnTitle: {
-    color: "#FFFFFF",
-    fontFamily: "Roboto-Regular",
-    fontSize: 16,
-    lineHeight: 19,
-  },
-
-  text: {
-    textAlign: "center",
-    color: "#1B4371",
-    fontFamily: "Roboto-Regular",
-    fontSize: 16,
-    lineHeight: 19,
-    marginBottom: 144,
-  },
-});

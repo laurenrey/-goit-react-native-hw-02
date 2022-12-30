@@ -1,5 +1,4 @@
 import {
-  StyleSheet,
   Text,
   View,
   TextInput,
@@ -12,6 +11,7 @@ import {
 import { useCallback, useState } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { styles } from "../src/screens.styles";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -48,13 +48,15 @@ export const RegistrationScreen = () => {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={styles.container}>
+      <View style={{ ...styles.container, marginTop: "50%" }}>
         <KeyboardAvoidingView
           behavior={Platform.OS == "ios" ? "padding" : "height"}
         >
-          <View style={styles.registerContainer}>
+          <View style={{ ...styles.registerContainer, position: "relative" }}>
             <View style={styles.photoContainer}></View>
-            <Text style={styles.header}>Registration</Text>
+            <Text style={{ ...styles.header, marginTop: 92 }}>
+              Registration
+            </Text>
             <View
               style={{
                 ...styles.form,
@@ -113,7 +115,7 @@ export const RegistrationScreen = () => {
               <Text style={styles.btnTitle}>Register</Text>
             </TouchableOpacity>
 
-            <Text style={styles.text}>
+            <Text style={{ ...styles.text, marginBottom: 78 }}>
               Do you already have an account? Log in
             </Text>
           </View>
@@ -122,92 +124,3 @@ export const RegistrationScreen = () => {
     </TouchableWithoutFeedback>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: "50%",
-    justifyContent: "flex-end",
-  },
-  registerContainer: {
-    borderTopRightRadius: 25,
-    borderTopLeftRadius: 25,
-    backgroundColor: "#ffffff",
-    position: "relative",
-  },
-
-  photoContainer: {
-    width: 120,
-    height: 120,
-    backgroundColor: "#F6F6F6",
-    borderColor: "#F6F6F6",
-    borderRadius: 16,
-    position: "absolute",
-    left: "47%",
-    transform: [{ translateX: -50 }, { translateY: -60 }],
-  },
-
-  header: {
-    color: "#212121",
-    fontFamily: "Roboto",
-    fontSize: 30,
-    lineHeight: 35,
-    textAlign: "center",
-    marginBottom: 32,
-    marginTop: 92,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#E8E8E8",
-    height: 50,
-    borderRadius: 8,
-    backgroundColor: "#F6F6F6",
-    paddingLeft: 16,
-    paddingRight: 16,
-    color: "#212121",
-    fontFamily: "Roboto-Regular",
-    fontSize: 16,
-    lineHeight: 19,
-  },
-
-  btnShowPassword: {
-    position: "absolute",
-    right: 16,
-    top: -34,
-    fontSize: 16,
-    color: "#1B4371",
-    fontFamily: "Roboto-Regular",
-    fontSize: 16,
-    lineHeight: 19,
-  },
-
-  form: {
-    marginHorizontal: 16,
-  },
-
-  btn: {
-    backgroundColor: "#FF6C00",
-    height: 51,
-    borderRadius: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 16,
-    marginHorizontal: 16,
-  },
-
-  btnTitle: {
-    color: "#FFFFFF",
-    fontFamily: "Roboto-Regular",
-    fontSize: 16,
-    lineHeight: 19,
-  },
-
-  text: {
-    textAlign: "center",
-    color: "#1B4371",
-    fontFamily: "Roboto-Regular",
-    fontSize: 16,
-    lineHeight: 19,
-    marginBottom: 78,
-  },
-});
