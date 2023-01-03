@@ -5,6 +5,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-end",
   },
+
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "flex-end",
+  },
+
   registerContainer: {
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
