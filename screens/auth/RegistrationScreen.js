@@ -45,6 +45,7 @@ export const RegistrationScreen = ({ navigation }) => {
   const onRegister = () => {
     console.log(state);
     setState(initialState);
+    navigation.navigate("Home");
   };
 
   return (
