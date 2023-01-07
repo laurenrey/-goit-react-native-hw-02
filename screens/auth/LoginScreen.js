@@ -12,7 +12,7 @@ import {
 import { useCallback, useState } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import { styles } from "../../src/screens.styles";
+import { styles } from "./screens.styles";
 
 SplashScreen.preventAutoHideAsync();
 
